@@ -1,24 +1,30 @@
+<!DOCTYPE html>
 <html> 
 <head>
     <title>Greeting Message</title> 
     <style>
 #lbl {
     font-family: serif;
-    font-size: xx-large;
-    color: #000000;
-    padding: 5px;
-    border: 1px solid #ececec;
-    text-align: center;
+    font-style: italic;
+    font-size: 16px;
+    color: #000;
+    padding: 15px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border: 0px solid #ececec;
+    text-align: right;
     line-height: 1.5;
     height:85%
 
 
 }
 #date{
-    font-size:large;
+    font-size:26px;
+    font-weight: bold;
+    font-style: normal;
 }
 body{
-    background-color: aliceblue;
+    background-color: #fff;
 }
     </style>
 </head>
@@ -28,30 +34,46 @@ body{
 
 <script>
     var weekday = new Array(7);
-    weekday[0] = "Sunday";
-    weekday[1] = "Monday";
-    weekday[2] = "Tuesday";
-    weekday[3] = "Wednesday";
-    weekday[4] = "Thursday";
-    weekday[5] = "Friday";
-    weekday[6] = "Saturday";
-
+    weekday[0] = "sunday";
+    weekday[1] = "monday";
+    weekday[2] = "tuesday";
+    weekday[3] = "wednesday";
+    weekday[4] = "thursday";
+    weekday[5] = "friday";
+    weekday[6] = "saturday";
+    
+    var month = new Array(12);
+    month[0] = "january";
+    month[1] = "february";
+    month[2] = "march";
+    month[3] = "april";
+    month[4] = "may";
+    month[5] = "june";
+    month[6] = "july";
+    month[7] = "august";
+    month[8] = "september";
+    month[9] = "october";
+    month[10] = "november";
+    month[11] = "december";
     
     var today = new Date();
     var hrs = today.getHours();
     var dayOfWeek = weekday[today.getDay()];
-    var date = dayOfWeek+" " + today.getDate() + "/" +(today.getMonth()+1) +'/'+today.getFullYear()  ;
+    var monthName = month[today.getMonth()]
+    var date = dayOfWeek+", " + today.getDate() + " " +monthName+" "+today.getFullYear()  ;
 
     var greet;
 
-    if (hrs < 12)
-        greet = 'Good Morning  ';
+    if (hrs >= 4 && hrs < 12)
+        greet = 'and yet, the morning gladness is not gone  ';
     else if (hrs >= 12 && hrs <= 17)
-        greet = 'Good Afternoon ';
-    else if (hrs >= 17 && hrs <= 24)
-        greet = 'Good Evening  ';
+        greet = 'sitting within doors betwixt light and dark ';
+    else if (hrs >= 18 && hrs <= 24)
+        greet = 'along the margin of the moonlight sea  ';
+    else if (hrs < 4)
+        greet = 'along the margin of the moonlight sea  ';
 
     document.getElementById('lbl').innerHTML =
-        greet+=`<div id="date"> It's ${date}</div>`;
+        greet+=`<div id="date"> ${date}</div>`;
 </script> 
 </html>
